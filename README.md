@@ -12,3 +12,6 @@ Este archivo contiene el main.cpp utilizado para correr el codigo de la solucion
 # Binary Search Tree
 https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem?isFullScreen=true
 Este archivo contiene el codigo implementado para la solucion de la busqueda de elementos en un arbol binario
+
+# Proyecto: GrandPrixAnalytics
+Es un proyecto de gestión de datos de pilotos de la Formula 1 que implica la organización y busqueda de información sobre los pilotos, asi como la creación de una interfaz para el usuario que permita una interaccion efectiva de los datos.
