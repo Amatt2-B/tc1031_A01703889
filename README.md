@@ -3,7 +3,7 @@ proyectos de algoritmos computacionales
 
 # GameOfTwoStacks
 https://www.hackerrank.com/challenges/game-of-two-stacks/problem?isFullScreen=true
-En este zip se encuentra el archivo main.cpp del código implementado para la solucion al problema de los Stacks.
+En este archivo se encuentra el archivo main.cpp del código implementado para la solucion al problema de los Stacks.
 
 # Lilys-Homework
 https://www.hackerrank.com/challenges/lilys-homework/problem
