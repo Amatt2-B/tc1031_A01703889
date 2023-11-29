@@ -9,84 +9,84 @@
 #include <algorithm>
 
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr) {
-  insertDriver({"Daniel Ricciardo", 3, 8, "McLaren"});
-  insertDriver({"Valtteri Bottas", 77, 3, "Mercedes"});
-  insertDriver({"Carlos Sainz", 55, 7, "Ferrari"});
-  insertDriver({"Fernando Alonso", 14, 9, "Alpine"});
-  insertDriver({"Lewis Hamilton", 44, 1, "Mercedes"});
-  insertDriver({"Charles Leclerc", 16, 6, "Ferrari"});
-  insertDriver({"Sebastian Vettel", 5, 10, "Aston Martin"});
-  insertDriver({"Max Verstappen", 33, 2, "Red Bull Racing"});
-  insertDriver({"Sergio Perez", 11, 5, "Red Bull Racing"});
-  insertDriver({"Lando Norris", 4, 4, "McLaren"});
+	insertDriver({"Daniel Ricciardo", 3, 8, "McLaren"});
+	insertDriver({"Valtteri Bottas", 77, 3, "Mercedes"});
+	insertDriver({"Carlos Sainz", 55, 7, "Ferrari"});
+	insertDriver({"Fernando Alonso", 14, 9, "Alpine"});
+	insertDriver({"Lewis Hamilton", 44, 1, "Mercedes"});
+	insertDriver({"Charles Leclerc", 16, 6, "Ferrari"});
+	insertDriver({"Sebastian Vettel", 5, 10, "Aston Martin"});
+	insertDriver({"Max Verstappen", 33, 2, "Red Bull Racing"});
+	insertDriver({"Sergio Perez", 11, 5, "Red Bull Racing"});
+	insertDriver({"Lando Norris", 4, 4, "McLaren"});
 }
 
 
 DoublyLinkedList::~DoublyLinkedList() {
-  while (head) {
-    Node *temp = head;
-    head = head->next;
-    delete temp;
-  }
+	while (head) {
+		Node *temp = head;
+		head = head->next;
+		delete temp;
+	}
 }
 
 void DoublyLinkedList::insertDriver(const Driver &driver) {
-  Node *newNode = new Node(driver);
-  if (!head) {
-    head = newNode;
-    tail = newNode;
-  } else {
-    tail->next = newNode;
-    newNode->prev = tail;
-    tail = newNode;
-  }
+	Node *newNode = new Node(driver);
+	if (!head) {
+		head = newNode;
+		tail = newNode;
+	} else {
+		tail->next = newNode;
+		newNode->prev = tail;
+		tail = newNode;
+	}
 }
 
 void DoublyLinkedList::deleteDriver(int driverNumber) {
-  Node *current = head;
-  while (current) {
-    if (current->data.driverNumber == driverNumber) {
-      if (current->prev) {
-        current->prev->next = current->next;
-      } else {
-        head = current->next;
-      }
-      if (current->next) {
-        current->next->prev = current->prev;
-      } else {
-        tail = current->prev;
-      }
-      delete current;
-      return;
-    }
-    current = current->next;
-  }
+	Node *current = head;
+	while (current) {
+		if (current->data.driverNumber == driverNumber) {
+			if (current->prev) {
+				current->prev->next = current->next;
+			} else {
+				head = current->next;
+			}
+			if (current->next) {
+				current->next->prev = current->prev;
+			} else {
+				tail = current->prev;
+			}
+			delete current;
+			return;
+		}
+		current = current->next;
+	}
 }
 
 void DoublyLinkedList::printList() const {
-  Node *current = head;
-  while (current) {
-    printDriver(current->data);
-    current = current->next;
-  }
+	Node *current = head;
+	while (current) {
+		printDriver(current->data);
+		current = current->next;
+	}
 }
 
 Node *DoublyLinkedList::findMiddle(Node *head, Node *&middle) {
-  Node *slow = head;
-  Node *fast = head->next;
+	Node *slow = head;
+	Node *fast = head->next;
 
-  while (fast) {
-    fast = fast->next;
-    if (fast) {
-      slow = slow->next;
-      fast = fast->next;
-    }
-  }
+	while (fast) {
+		fast = fast->next;
+		if (fast) {
+			slow = slow->next;
+			fast = fast->next;
+		}
+	}
 
-  middle = slow->next;
-  slow->next = nullptr;
+	middle = slow->next;
+	slow->next = nullptr;
 
-  return head;
+	return head;
 }
 
 void DoublyLinkedList::setDrivers(const std::vector<Driver>& drivers) {
@@ -180,13 +180,13 @@ void DoublyLinkedList::bubbleSort() {
 }
 
 Driver DoublyLinkedList::searchDriver(int driverNumber) {
-  Node *current = head;
-  while (current) {
-    if (current->data.driverNumber == driverNumber) {
-      return current->data;
-    }
-    current = current->next;
-  }
-  // Return a default-constructed Driver if not found
-  return {"", -1, -1, ""};
+	Node *current = head;
+	while (current) {
+		if (current->data.driverNumber == driverNumber) {
+			return current->data;
+		}
+		current = current->next;
+	}
+	// Return a default-constructed Driver if not found
+	return {"", -1, -1, ""};
 }

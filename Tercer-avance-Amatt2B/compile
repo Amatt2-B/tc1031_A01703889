@@ -1,1 +1,0 @@
-g++ -o grandprix main.cpp driver.cpp sort.cpp search.cpp dls.cpp filer.cpp
